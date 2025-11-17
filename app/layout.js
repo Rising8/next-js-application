@@ -20,6 +20,7 @@ export const metadata = {
     },
 };
 
+
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
@@ -41,13 +42,16 @@ export default function RootLayout({ children }) {
                     <div className="navbar-menu">
                         <div className="navbar-start">
                             <Link className="navbar-item" href="/">
-                                Home
+                                Dashboard
                             </Link>
-                            <Link className="navbar-item" href="/nasa-api">
-                                NASA API
+                            <Link className="navbar-item" href="/workspaces">
+                                Workspaces
                             </Link>
-                            <Link className="navbar-item" href="/about">
-                                About
+                            <Link className="navbar-item" href="/projects">
+                                Projects
+                            </Link>
+                            <Link className="navbar-item" href="/tasks">
+                                Tasks
                             </Link>
                         </div>
                     </div>
@@ -56,7 +60,48 @@ export default function RootLayout({ children }) {
                 {/* Main content section */}
                 <section className="section">
                     <div className="container">
-                        {children} {/* This will render the children (pages) */}
+                        <div className="columns">
+
+                            {/* Sidebar showing the flow */}
+                            <aside className="column is-3">
+                                <nav className="menu box">
+                                    <p className="menu-label">Users & Workspaces</p>
+                                    <ul className="menu-list">
+                                        <li><Link href="/users">Users</Link></li>
+                                        <li><Link href="/workspaces">Workspaces</Link></li>
+                                    </ul>
+
+                                    <p className="menu-label mt-4">Projects</p>
+                                    <ul className="menu-list">
+                                        <li><Link href="/projects">All Projects</Link></li>
+                                        <li><Link href="/projects/new">+ New Project</Link></li>
+                                    </ul>
+
+                                    <p className="menu-label mt-4">Tasks</p>
+                                    <ul className="menu-list">
+                                        <li><Link href="/tasks">All Tasks</Link></li>
+                                        <li><Link href="/tasks/assigned">Assigned to Me</Link></li>
+                                    </ul>
+
+                                    <p className="menu-label mt-4">Comments & Checklist</p>
+                                    <ul className="menu-list">
+                                        <li><Link href="/comments">All Comments</Link></li>
+                                        <li><Link href="/checklist-items">Checklist Items</Link></li>
+                                    </ul>
+
+                                    <p className="menu-label mt-4">Milestones</p>
+                                    <ul className="menu-list">
+                                        <li><Link href="/milestones">All Milestones</Link></li>
+                                    </ul>
+                                </nav>
+                            </aside>
+
+                            {/* Main Content */}
+                            <main className="column">
+                                <div className="box">{children}</div>
+                            </main>
+
+                        </div>
                     </div>
                 </section>
 
@@ -64,7 +109,7 @@ export default function RootLayout({ children }) {
                 <footer className="footer">
                     <div className="content has-text-centered">
                         <p>
-                            © 2025 <strong>AT3 Next.js App</strong>. Built with
+                            © 2025 <strong>AT3 Next.js App</strong>. Built with 
                             Next.js
                         </p>
                     </div>
