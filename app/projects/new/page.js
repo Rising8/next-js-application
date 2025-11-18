@@ -1,4 +1,5 @@
 // app/projects/new/page.js
+// creating a new project page
 "use client";
 
 import { useState } from "react";
