@@ -22,32 +22,43 @@ export default function NewProjectPage() {
     };
 
     return (
-        <div className="p-6">
-            <h1 className="text-2xl font-bold mb-4">Add New Project</h1>
-            {error && <p className="text-red-600 mb-2">{error}</p>}
-            <form onSubmit={handleSubmit} className="space-y-4 rounded border p-4 shadow-sm">
-                <div className="flex flex-col gap-1">
+        <div className="p-6 projects-wrapper">
+            <h1 className="text-2xl font-bold mb-4 page-title">Add New Project</h1>
+            {error && <p className="error-box text-red-600 mb-2">{error}</p>}
+            <form onSubmit={handleSubmit} className="space-y-4 rounded border p-4 shadow-sm neon-form">
+                {/* Project Name */}
+                <div className="flex flex-col gap-1 mb-4">
                     <label className="text-sm font-medium text-gray-700">Project Name</label>
-                    <input
-                        type="text"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                        required
-                    />
+                    <div className="control">
+                        <input
+                            type="text"
+                            value={form.name}
+                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+                            className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 input neon-input"
+                            required
+                        />
+                    </div>
                 </div>
-                <div className="flex flex-col gap-1">
+                {/* Project Description */}
+                <div className="flex flex-col gap-1 mb-4">
                     <label className="text-sm font-medium text-gray-700">Description</label>
-                    <textarea
-                        value={form.description}
-                        onChange={(e) => setForm({ ...form, description: e.target.value })}
-                        className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-                        rows="3"
-                    />
-                </div>
-                <button type="submit" className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
-                    Add Project
-                </button>
+                    <div className="control">
+                        <textarea
+                            value={form.description}
+                            onChange={(e) => setForm({ ...form, description: e.target.value })}
+                            className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 textarea neon-textarea"
+                            rows="3"
+                        />
+                    </div>
+                </div>       
+
+                <div className="field is-grouped is-justify-content-center">
+                    <div className="control">
+                        <button type="submit" className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 button neon-btn">
+                            Add Project
+                        </button>
+                    </div>
+                </div>         
             </form>
         </div>
     );

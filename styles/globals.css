@@ -1,7 +1,207 @@
 @import "bulma/css/bulma.min.css";
 
+:root{
+    --neon-pink: #ff3dcf;
+    --neon-blue: #00eaff;
+    --neon-purple: #a700ff;
+    --neon-bg: #0b0d1a;
+    --neon-card-bg: #121426;
+    --neon-text: #d6e1ff;
+}
+
 body {
+    background: var(--neon-bg);
+    color: var(--neon-text);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+}
+
+/* === LAYOUT OF NEXT.JS APPLICATION === */
+.navbar.is-primary{
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+    box-shadow: 0 0 15px var(--neon-purple);
+}
+.navbar .navbar-item{
+    color: white;
+}
+.navbar .navbar-item:hover{
+    text-shadow: 0 0 8px white;
+}
+.menu.box{
+    background: var(--neon-card-bg);
+    border: 1px solid var(--neon-purple);
+    box-shadow: 0 0 15px rgba(167,0,255,0.3);
+    border-radius: 10px;
+}
+.menu-list a{
+    color: var(--neon-blue);
+}
+.menu-list a:hover{
+    background: rgba(0, 234, 255, 0.1);
+    color: var(--neon-pink);
+}
+.box{
+    background: var(--neon-card-bg);
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0,234,255,0.2);
+    border-radius: 10px;
+}
+.footer{
+    background: var(--neon-card-bg);
+    color: var(--neon-text);
+    border-top: 1px solid var(--neon-blue);
+}
+.button, a.button{
+    border-radius: 8px !important;
+    transition: 0.2s;
+}
+.button.is-primary{
+    background: var(--neon-purple);
+    border: none;
+    box-shadow: 0 0 10px var(--neon-purple);
+}
+.button.is-primary:hover{
+    background: var(--neon-pink);
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+/* === PROJECT LIST PAGE === */
+.projects-wrapper{
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #1a0029, #07000f);
+    padding-bottom: 50px;
+    color: #fff;
+}
+.project-card{
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4),
+                inset 0 0 10px rgba(0, 255, 255, 0.1);
+    transition: 0.25s ease-in-out;
+}
+.project-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 0 18px rgba(0, 255, 255, 0.9),
+                inset 0 0 12px rgba(0, 255, 255, 0.4);
+    border-color: cyan;
+}
+.project-title{
+    color: #39ff14; 
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.project-description{
+    color: #b8ffe9;
+    opacity: 0.9;
+}
+.project-grid{
+    gap: 2rem;
+}
+.add-project-btn{
+    background: #8a2be2 ; 
+    border: 1px solid #c77dff;
+    text-shadow: 0 0 5px #fff;
+    box-shadow: 0 0 12px #c77dff;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+.add-project-btn:hover{
+    background: #a855f7 ;
+    box-shadow: 0 0 20px #d0a2ff;
+    transform: translateY(-2px);
+}
+.edit-btn{
+    background: #ffea00 ;
+    border: 1px solid #ffee55;
+    color: #222 ;
+    box-shadow: 0 0 10px #ffee55;
+}
+.edit-btn:hover{
+    background: #fff36b ;
+    box-shadow: 0 0 18px #fffa8c;
+}
+.delete-btn{
+    background: #ff0059 ;
+    border: 1px solid #ff4c91;
+    box-shadow: 0 0 10px #ff4c91;
+}
+.delete-btn:hover{
+    background: #ff3380 ;
+    box-shadow: 0 0 20px #ff77aa;
+}
+.error-box{
+    border-left: 4px solid #ff0059;
+    background: rgba(255, 0, 90, 0.1);
+    color: #ff99c2;
+    text-shadow: 0 0 6px rgba(255, 0, 90, 0.6);
+}.page-title {
+    font-size: 2.5rem;
+    color: #00eaff;
+    text-shadow:
+        0 0 10px #00eaff,
+        0 0 20px #00eaff,
+        0 0 30px #00eaff;
+}
+.project-card:hover{
+    animation: neonPulse 0.9s ease-in-out infinite alternate;
+}
+@keyframes neonPulse{
+    0% {
+        box-shadow: 0 0 10px #00fff2, inset 0 0 10px rgba(0,255,255,.4);
+    }
+    100% {
+        box-shadow: 0 0 25px #00fff2, inset 0 0 20px rgba(0,255,255,.7);
+    }
+}
+
+
+/* === ADD PROJECT PAGE === */
+.neon-form{
+    background: rgba(18, 20, 38, 0.85);
+    border: 1px solid var(--neon-blue);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 234, 255, 0.2);
+    transition: 0.3s ease-in-out;
+}
+.neon-form:hover{
+    box-shadow: 0 0 25px var(--neon-blue);
+}
+.neon-form label{
+    color: var(--neon-blue);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+.neon-input, .neon-textarea{
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+.neon-input:focus, .neon-textarea:focus{
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+    outline: none;
+}
+.neon-btn{
+    background: var(--neon-purple);
+    color: #fff;
+    border: 1px solid var(--neon-pink);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-shadow: 0 0 3px #fff;
+    transition: 0.25s ease;
+}
+.neon-btn:hover{
+    background: var(--neon-pink);
+    box-shadow: 0 0 20px var(--neon-pink);
+    transform: translateY(-2px);
 }
