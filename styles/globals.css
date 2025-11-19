@@ -116,24 +116,33 @@ body {
     transform: translateY(-2px);
 }
 .edit-btn{
-    background: #ffea00 ;
-    border: 1px solid #ffee55;
-    color: #222 ;
-    box-shadow: 0 0 10px #ffee55;
+    background: #00eaff;
+    border: 1px solid #00bcd4;
+    color: #000;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00eaff;
+    transition: 0.2s ease;
 }
 .edit-btn:hover{
-    background: #fff36b ;
-    box-shadow: 0 0 18px #fffa8c;
+    background: #00bcd4;
+    box-shadow: 0 0 12px #00eaff;
 }
 .delete-btn{
-    background: #ff0059 ;
+    background: #ff0059;
     border: 1px solid #ff4c91;
-    box-shadow: 0 0 10px #ff4c91;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-shadow: 0 0 5px #ff0059;
+    transition: 0.2s ease;
 }
 .delete-btn:hover{
-    background: #ff3380 ;
-    box-shadow: 0 0 20px #ff77aa;
+    background: #ff3380;
+    box-shadow: 0 0 15px #ff77aa;
 }
+
 .error-box{
     border-left: 4px solid #ff0059;
     background: rgba(255, 0, 90, 0.1);
@@ -204,4 +213,57 @@ body {
     background: var(--neon-pink);
     box-shadow: 0 0 20px var(--neon-pink);
     transform: translateY(-2px);
+}
+
+
+/* Tasks - Assigned to me ( tasks in different projects) */
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+    transition: 0.2s ease;
+    margin-bottom: 4px;
+}
+/* CHANGE THIS STYLE LATER TO WHATEVER IS IN API FOR STYLE TO APPLY PROPERLY */
+.status-to-do{
+    color: #ffea00;
+    background: rgba(255, 234, 0, 0.2);
+    border: 1px solid #ffee55;
+}.status-to-do:hover { box-shadow: 0 0 8px #ffee55, 0 0 12px #ffee55 inset; }
+
+.status-in-progress{
+    color: #00ffff;
+    background: rgba(0, 255, 255, 0.2);
+    border: 1px solid #00eaff;
+}.status-in-progress:hover { box-shadow: 0 0 8px #00eaff, 0 0 12px #00eaff inset; }
+
+.status-done{
+    color: #39ff14;
+    background: rgba(57, 255, 20, 0.2);
+    border: 1px solid #39ff14;
+}.status-done:hover { box-shadow: 0 0 8px #39ff14, 0 0 12px #39ff14 inset; }
+
+/* Project select dropdown*/
+.project-select {
+    background: rgba(0,0,0,0.8);
+    color: #00eaff;
+    border: 2px solid #00eaff;
+    border-radius: 8px;
+    padding: 6px 12px;
+    text-shadow: 0 0 3px #00eaff;
+    transition: 0.2s ease;
+}
+.project-select:focus{
+    outline: none;
+    border-color: #ff3dcf;
+    box-shadow: 0 0 8px #ff3dcf;
+    color: #ff3dcf;
+}
+
+.project-label {
+    color: #00eaff;
+    font-weight: 600;
+    text-shadow: 0 0 6px #00eaff;
 }

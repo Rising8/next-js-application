@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
                                     <p className="menu-label mt-4">Tasks</p>
                                     <ul className="menu-list">
                                         <li><Link href="/tasks">All Tasks</Link></li>
-                                        <li><Link href="/tasks/assigned">Assigned to Me</Link></li>
+                                        <li><Link href="/tasks/assigned">Project Tasks</Link></li>
                                     </ul>
 
                                     <p className="menu-label mt-4">Comments & Checklist</p>
