@@ -2,28 +2,56 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import api from "@/lib/api";
 
 export default function NewTaskPage() {
+    const [projects, setProjects] = useState([]);
     const [form, setForm] = useState({
         name: "",
         description: "",
         due_date: "",
-        status: "to_do",
+        status: "todo", 
+        project_id: "",
     });
 
     const [error, setError] = useState("");
     const router = useRouter();
 
+    // Load project list
+    useEffect(() => {
+        const fetchProjects = async () => {
+            try {
+                const res = await api.get("/projects");
+                const data = res.data.data || res.data || [];
+                setProjects(data);
+
+                // Auto-select first project if you want
+                if (data.length > 0) {
+                    setForm((prev) => ({
+                        ...prev,
+                        project_id: data[0].id,
+                    }));
+                }
+            } catch (err) {
+                setError("Failed to load projects");
+            }
+        };
+        fetchProjects();
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await api.post("/tasks", form);
-            router.push("/tasks"); 
+            await api.post("/tasks", {
+                ...form,
+                due_date: form.due_date || null,
+            });
+
+            router.push("/tasks");
         } catch (err) {
-            setError(err.message || "Error creating task");
+            setError(err.response?.data?.message || err.message || "Error creating task");
         }
     };
 
@@ -37,6 +65,27 @@ export default function NewTaskPage() {
                 onSubmit={handleSubmit}
                 className="space-y-4 rounded border p-4 shadow-sm neon-form"
             >
+                {/* Project Select */}
+                <div className="flex flex-col gap-1 mb-4">
+                    <label className="text-sm font-medium text-gray-700">Project</label>
+                    <div className="control">
+                        <select
+                            value={form.project_id}
+                            onChange={(e) =>
+                                setForm({ ...form, project_id: e.target.value })
+                            }
+                            className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 select neon-input"
+                            required
+                        >
+                            {projects.map((p) => (
+                                <option key={p.id} value={p.id}>
+                                    {p.name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
+
                 {/* Task Name */}
                 <div className="flex flex-col gap-1 mb-4">
                     <label className="text-sm font-medium text-gray-700">Task Name</label>
@@ -72,7 +121,7 @@ export default function NewTaskPage() {
                             type="date"
                             value={form.due_date}
                             onChange={(e) => setForm({ ...form, due_date: e.target.value })}
-                            className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 input neon-input"
+                            className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 select neon-input"
                         />
                     </div>
                 </div>
@@ -88,7 +137,7 @@ export default function NewTaskPage() {
                         >
                             <option value="to_do">to_do</option>
                             <option value="in_progress">in_progress</option>
-                            <option value="done">done</option>
+                            <option value="done">Done</option>
                         </select>
                     </div>
                 </div>
