@@ -92,8 +92,14 @@ export default function TasksPage() {
                             </p>
                         )}
 
-                        {/* Edit & Delete */}
+                        {/* View, Edit & Delete */}
                         <div className="flex gap-2 task-actions">
+                            <Link
+                                href={`/tasks/${task.id}`}
+                                className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 neon-btn"
+                            >
+                                View
+                            </Link>
                             <Link
                                 href={`/tasks/${task.id}/edit`}
                                 className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 edit-btn"
