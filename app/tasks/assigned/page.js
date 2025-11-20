@@ -11,13 +11,25 @@ export default function ProjectTasksPage() {
     const [error, setError] = useState(null);
     const [loadingProjects, setLoadingProjects] = useState(true);
     const [loadingTasks, setLoadingTasks] = useState(false);
-{/* I NEED TO CHANGE THIS TO_DO THING (and maybe the done/completed) LATER TO WHATEVER IS IN THE API SO THAT THE STYLE WILL WORK */}
+
+    // Map API status values to CSS classes
     const statusMap = {
-        to_do: "status-to-do",
+        todo: "status-to-do",
+        to_do: "status-to-do",       
         in_progress: "status-in-progress",
         done: "status-done",
+        completed: "status-done",
     };
 
+    // Map API status values to display labels
+    const statusLabelMap = {
+        todo: "To Do",
+        to_do: "To Do",
+        in_progress: "In Progress",
+        done: "Done",
+        completed: "Done",
+    };
+    
     // Load projects
     useEffect(() => {
         const fetchProjects = async () => {

@@ -226,7 +226,7 @@ body {
     transition: 0.2s ease;
     margin-bottom: 4px;
 }
-/* CHANGE THIS STYLE LATER TO WHATEVER IS IN API FOR STYLE TO APPLY PROPERLY */
+
 .status-to-do{
     color: #ffea00;
     background: rgba(255, 234, 0, 0.2);
