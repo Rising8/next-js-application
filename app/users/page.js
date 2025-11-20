@@ -37,45 +37,52 @@ export default function UsersPage() {
         setCurrentPage(Math.min(Math.max(page, 1), totalPages));
     };
 
-    const getFirstUser = (name) => (name ? name.charAt(0).toUpperCase() : "?");
-
     if (loading) return <p className="p-6 text-gray-600">Loading users...</p>;
 
     return (
         <div className="p-6">
-            <h1 className="text-2xl font-bold mb-4">Users</h1>
+            <h1 className="page-title text-2xl font-bold mb-4">Users</h1>
             {error && (
-                <div className="mb-4 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                <div className="error-box mb-4 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
                     <p className="font-semibold">Unable to load users</p>
                     <p>{error}</p>
                 </div>
             )}
             {!error && success && (
-                <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800">
+                <div className="mb-4 rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-800"
+                    style={{
+                    background: "rgba(0,255,255,0.1)",
+                    color: "var(--neon-blue)",
+                    border: "1px solid var(--neon-blue)",
+                    textShadow: "0 0 6px var(--neon-blue)"
+                }}>
                     <p className="font-semibold">Success</p>
                     <p>{success}</p>
                 </div>
             )}
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white p-4 text-sm shadow-sm">
+            <div className="mb-3 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white p-4 text-sm shadow-sm" style={{
+                    background: "var(--neon-card-bg)",
+                    border: "1px solid var(--neon-blue)",
+                }}>
                 <div>
-                    <p className="text-xs uppercase tracking-wide text-gray-500">
+                    <p className="text-xs uppercase tracking-wide text-gray-500" style={{ color: "var(--neon-blue)" }}>
                         Total users
                     </p>
-                    <p className="text-xl font-semibold text-gray-900">
+                    <p className="text-xl font-semibold text-gray-900" style={{ color: "var(--neon-text)" }}>
                         {users.length}
                     </p>
                 </div>
-                <div className="flex gap-2">
+                {/* <div className="flex gap-2">
                     <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">
                         {PAGE_SIZE} per page
                     </span>
                     <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
                         Page {currentPage}
                     </span>
-                </div>
+                </div> */} {/* i feel like this code is useless so i commented it out */}
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+            <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm" style={{ border: "1px solid var(--neon-blue)" }}>
                 <table className="min-w-full border-collapse text-sm">
                     <thead className="bg-slate-50 text-left font-semibold text-slate-600">
                         <tr>
@@ -101,7 +108,7 @@ export default function UsersPage() {
 
                             return (
                                 <tr
-                                    key={user.id}
+                                    key={user.id}                                
                                     className={`${
                                         index % 2 === 0
                                             ? "bg-white"
@@ -110,14 +117,11 @@ export default function UsersPage() {
                                 >
                                     <td className="p-3">
                                         <div className="flex items-center gap-3">
-                                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 font-semibold text-blue-700">
-                                                {getFirstUser(user.name)}
-                                            </div>
                                             <div>
-                                                <p className="font-medium text-slate-900">
+                                                <p className="font-medium text-slate-900" style={{ color: "var(--neon-text)" }}>
                                                     {user.name}
                                                 </p>
-                                                <p className="text-xs text-slate-500">
+                                                <p className="text-xs text-slate-500" style={{ color: "var(--neon-blue)" }}>
                                                     ID: {user.id}
                                                 </p>
                                             </div>
@@ -125,7 +129,7 @@ export default function UsersPage() {
                                     </td>
                                     <td className="p-3">
                                         <div className="flex flex-wrap items-center gap-2">
-                                            <span className="break-all text-sm text-slate-800">
+                                            <span className="break-all text-sm text-slate-800" style={{ color: "var(--neon-text)" }}>
                                                 {emailValue || "N/A"}
                                             </span>
                                             {verified !== undefined && (
@@ -135,6 +139,14 @@ export default function UsersPage() {
                                                             ? "bg-green-100 text-green-700"
                                                             : "bg-yellow-100 text-yellow-700"
                                                     }`}
+                                                    style={{
+                                                        background: verified
+                                                            ? "rgba(57,255,20,0.2)"
+                                                            : "rgba(255,234,0,0.2)",
+                                                        color: verified
+                                                            ? "#39ff14"
+                                                            : "#ffea00",
+                                                    }}
                                                 >
                                                     {verified
                                                         ? "Verified"
@@ -144,7 +156,11 @@ export default function UsersPage() {
                                         </div>
                                     </td>
                                     <td className="p-3">
-                                        <span className="rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700">
+                                        <span className="rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700"
+                                        style={{
+                                                background: "rgba(18,20,38,0.5)",
+                                                color: "var(--neon-blue)",
+                                            }}>
                                             {createdValue}
                                         </span>
                                     </td>
@@ -157,7 +173,7 @@ export default function UsersPage() {
 
             <div className="mt-4 flex items-center justify-between text-sm">
                 <button
-                    className="rounded border border-gray-300 px-3 py-1 font-medium text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="neon-btn rounded border border-gray-300 px-3 py-1 font-medium text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                     onClick={() => goToPage(currentPage - 1)}
                     disabled={currentPage === 1}
                 >
@@ -167,7 +183,7 @@ export default function UsersPage() {
                     Page {currentPage} of {totalPages}
                 </p>
                 <button
-                    className="rounded border border-gray-300 px-3 py-1 font-medium text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                    className=" neon-btn rounded border border-gray-300 px-3 py-1 font-medium text-gray-700 hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                     onClick={() => goToPage(currentPage + 1)}
                     disabled={currentPage === totalPages}
                 >
