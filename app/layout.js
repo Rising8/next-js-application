@@ -43,10 +43,7 @@ export default function RootLayout({ children }) {
                         <div className="navbar-start">
                             <Link className="navbar-item" href="/">
                                 Dashboard
-                            </Link>
-                            <Link className="navbar-item" href="/workspaces">
-                                Workspaces
-                            </Link>
+                            </Link>                 
                             <Link className="navbar-item" href="/projects">
                                 Projects
                             </Link>
@@ -65,10 +62,9 @@ export default function RootLayout({ children }) {
                             {/* Sidebar showing the flow */}
                             <aside className="column is-3">
                                 <nav className="menu box">
-                                    <p className="menu-label">Users & Workspaces</p>
+                                    <p className="menu-label">Users</p>
                                     <ul className="menu-list">
                                         <li><Link href="/users">Users</Link></li>
-                                        <li><Link href="/workspaces">Workspaces</Link></li>
                                     </ul>
 
                                     <p className="menu-label mt-4">Projects</p>
