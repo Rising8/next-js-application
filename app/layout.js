@@ -43,12 +43,24 @@ export default function RootLayout({ children }) {
                         <div className="navbar-start">
                             <Link className="navbar-item" href="/">
                                 Dashboard
-                            </Link>                 
+                            </Link>      
+                            <Link className="navbar-item" href="/users">
+                                Users
+                            </Link>           
                             <Link className="navbar-item" href="/projects">
                                 Projects
                             </Link>
                             <Link className="navbar-item" href="/tasks">
                                 Tasks
+                            </Link>
+                            <Link className="navbar-item" href="/comments">
+                                Comments
+                            </Link>
+                            <Link className="navbar-item" href="/checklist-items">
+                                Checklist Items
+                            </Link>
+                            <Link className="navbar-item" href="/milestones">
+                                Milestones
                             </Link>
                         </div>
                     </div>
@@ -70,20 +82,20 @@ export default function RootLayout({ children }) {
                                     <p className="menu-label mt-4">Projects</p>
                                     <ul className="menu-list">
                                         <li><Link href="/projects">All Projects</Link></li>
-                                        <li><Link href="/projects/new">+ New Project</Link></li>
+                                        <li><Link className="mt-2" href="/projects/new">+ New Project</Link></li>
                                     </ul>
 
                                     <p className="menu-label mt-4">Tasks</p>
                                     <ul className="menu-list">
                                         <li><Link href="/tasks">All Tasks</Link></li>
-                                        <li><Link href="/tasks/new">+ New Task</Link></li>
-                                        <li><Link href="/tasks/assigned">Project Tasks</Link></li>
+                                        <li><Link className="mt-2" href="/tasks/new">+ New Task</Link></li>
+                                        <li><Link className="mt-2" href="/tasks/assigned">Project Tasks</Link></li>
                                     </ul>
 
                                     <p className="menu-label mt-4">Comments & Checklist</p>
                                     <ul className="menu-list">
                                         <li><Link href="/comments">All Comments</Link></li>
-                                        <li><Link href="/checklist-items">Checklist Items</Link></li>
+                                        <li><Link className="mt-2" href="/checklist-items">Checklist Items</Link></li>
                                     </ul>
 
                                     <p className="menu-label mt-4">Milestones</p>
