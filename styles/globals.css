@@ -267,3 +267,11 @@ body {
     font-weight: 600;
     text-shadow: 0 0 6px #00eaff;
 }
+
+
+/* Checklist Label Styling*/
+.checklist-label {
+    color: var(--neon-pink);
+    font-weight: 800;
+}
+
