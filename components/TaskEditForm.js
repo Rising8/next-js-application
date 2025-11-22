@@ -101,7 +101,7 @@ export default function TaskEditForm({ taskId }) {
                     type="date"
                     value={form.due_date || ""}
                     onChange={(e) => setForm({ ...form, due_date: e.target.value })}
-                    className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 select neon-input"
+                    className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 input select neon-input"
                 />
             </div>
 
@@ -111,7 +111,7 @@ export default function TaskEditForm({ taskId }) {
                 <select
                     value={form.status}
                     onChange={(e) => setForm({ ...form, status: e.target.value })}
-                    className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 select neon-input"
+                    className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 input select neon-input"
                 >
                     <option value="to_do">To Do</option>
                     <option value="in_progress">In Progress</option>
