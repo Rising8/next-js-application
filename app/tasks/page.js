@@ -56,7 +56,7 @@ export default function TasksPage() {
             </Link>
 
             {/* Task List */}
-            <div className="border p-4 rounded shadow hover:shadow-md transition project-card flex flex-col">
+            <div className="border mt-5 p-4 rounded shadow hover:shadow-md transition project-card flex flex-col">
                 {tasks.map((task) => (
                     <div
                         key={task.id}
