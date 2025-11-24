@@ -95,6 +95,7 @@ export default function RootLayout({ children }) {
                                     <p className="menu-label mt-4">Comments & Checklist</p>
                                     <ul className="menu-list">
                                         <li><Link href="/comments">All Comments</Link></li>
+                                        <li><Link className="mt-2" href="/comments/new">+ New Comment</Link></li>
                                         <li><Link className="mt-2" href="/checklist-items">Checklist Items</Link></li>
                                     </ul>
 
