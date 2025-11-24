@@ -26,7 +26,7 @@ export default async function EditTaskPage({ params }) {
 
     return (
         <div className="p-6 tasks-wrapper">
-            <Link href={`/tasks/${id}`} className="text-sm text-blue-600 hover:underline">
+            <Link href={`/tasks`} className="text-sm text-blue-600 hover:underline">
                 ← Back to all tasks
             </Link>
 
