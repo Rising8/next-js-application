@@ -119,12 +119,16 @@ export default function TaskEditForm({ taskId }) {
                 </select>
             </div>
 
-            <button
-                type="submit"
-                className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 button neon-btn"
-            >
-                Update Task
-            </button>
+            <div className="field is-grouped is-justify-content-center">
+                    <div className="control">
+                        <button
+                            type="submit"
+                            className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 button neon-btn"
+                        >
+                            Update Task
+                        </button>
+                    </div>
+                </div>
         </form>
     );
 }
