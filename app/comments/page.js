@@ -62,6 +62,15 @@ export default function CommentsPage() {
                                 <strong style={{ color: "#39ff14" }}>Workspace:</strong>{" "}
                                 <span className="text-gray-300">{c.workspace.name}</span>
                             </p>
+                        )}
+                        {/* Commentable */}
+                        {c.commentable && (
+                            <p className="text-sm text-gray-600 mb-2 project-description break-all">
+                                <strong style={{ color: "#39ff14" }}>Attached To: </strong>
+                                <span className="text-gray-300">
+                                    {c.commentable.type} — {c.commentable.id}
+                                </span>
+                            </p>
                         )}                        
                     </div>
                 ))}

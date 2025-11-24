@@ -27,7 +27,6 @@ export default function NewTaskPage() {
                 const data = res.data.data || res.data || [];
                 setProjects(data);
 
-                // Auto-select first project if you want
                 if (data.length > 0) {
                     setForm((prev) => ({
                         ...prev,
