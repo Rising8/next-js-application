@@ -54,11 +54,11 @@ export default function ProjectsPage() {
             </Link>
 
             {/* Project List */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 project-grid">
+            <div className="border p-4 rounded shadow hover:shadow-md transition project-card flex flex-col">
                 {projects.map((project) => (
                     <div
                         key={project.id}
-                        className="border p-4 rounded shadow hover:shadow-md transition project-card"
+                        className="border p-4 mb-4 rounded shadow hover:shadow-md transition project-card"
                     >
                         <Link
                             href={`/projects/${project.id}`}
