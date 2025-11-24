@@ -35,11 +35,11 @@ export default function MilestonesPage() {
                 </div>
             )}
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 project-grid">
+            <div className="border p-4 rounded shadow hover:shadow-md transition project-card flex flex-col">
                 {milestones.map((m) => (
                     <div
                         key={m.id}
-                        className="border p-4 rounded shadow hover:shadow-md transition project-card"
+                        className="border p-4 mb-4 rounded shadow hover:shadow-md transition project-card"
                     >
                         {/* Title */}
                         <Link

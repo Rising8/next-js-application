@@ -56,11 +56,11 @@ export default function ChecklistItemsPage() {
             </Link> */}
 
             {/* Checklist Item Cards */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 project-grid">
+            <div className="border p-4 rounded shadow hover:shadow-md transition project-card flex flex-col">
                 {items.map((item) => (
                     <div
                         key={item.id}
-                        className="border p-4 rounded shadow hover:shadow-md transition project-card"
+                        className="border p-4 mb-4 rounded shadow hover:shadow-md transition project-card"
                     >
                         {/* Label (Title) */}
                         <Link

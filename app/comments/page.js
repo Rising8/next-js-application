@@ -34,11 +34,11 @@ export default function CommentsPage() {
                 </div>
             )}
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 project-grid">
+            <div className="border p-4 rounded shadow hover:shadow-md transition project-card flex flex-col">
                 {comments.map((c) => (
                     <div
                         key={c.id}
-                        className="border p-4 rounded shadow hover:shadow-md transition project-card"
+                        className="border p-4 mb-4 rounded shadow hover:shadow-md transition project-card"
                     >
                         {/* Comment content */}
                         <p className="text-sm text-gray-600 mb-2 project-description">
