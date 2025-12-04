@@ -92,10 +92,14 @@ export default function RootLayout({ children }) {
                                         <li><Link className="mt-2" href="/tasks/assigned">Project Tasks</Link></li>
                                     </ul>
 
-                                    <p className="menu-label mt-4">Comments & Checklist</p>
+                                    <p className="menu-label mt-4">Comments</p>
                                     <ul className="menu-list">
                                         <li><Link href="/comments">All Comments</Link></li>
                                         <li><Link className="mt-2" href="/comments/new">+ New Comment</Link></li>
+                                    </ul>
+
+                                    <p className="menu-label mt-4">Checklist Items</p>
+                                    <ul className="menu-list">    
                                         <li><Link className="mt-2" href="/checklist-items">Checklist Items</Link></li>
                                     </ul>
 
