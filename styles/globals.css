@@ -276,3 +276,93 @@ body {
     font-weight: 800;
 }
 
+
+
+/* === DASHBOARD STYLING === */
+/* CYBER HEADER */
+.cyber-header{
+    padding: 3rem;
+    text-align: center;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #bc00ff 0%, #004cff 100%);
+    color: white;
+    box-shadow: 0 0 25px #8e2de2, 0 0 50px #6a00ff;
+    animation: neonPulse 3s infinite alternate;
+}
+.cyber-header-text{
+    color: white !important;
+}
+/* Pulse animation */
+@keyframes neonPulse{
+    0% { box-shadow: 0 0 20px #8e2de2; }
+    100% { box-shadow: 0 0 45px #6a00ff; }
+}
+
+/* CYBER LAYOUT */
+.cyber-row{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.cyber-flex{
+    flex: 1;
+    min-width: 220px;
+}
+/* CYBER CARD */
+.cyber-card{    
+    background: rgba(10, 10, 14, 0.85);
+    border-radius: 18px;
+    padding: 1.8rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 18px var(--glow);
+    transition: transform 0.25s, box-shadow 0.25s, filter 0.25s;
+}
+
+.cyber-card:hover{
+    transform: translateY(-10px) scale(1.03);
+    filter: brightness(1.4);
+}
+
+/* neon border */
+.cyber-card-border{
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--glow), transparent 60%);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude; 
+}
+/* CYBER ICON */
+.cyber-icon{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--glow) 20%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.3rem;
+    margin: 0 auto 1.2rem;
+    box-shadow: 0 0 18px var(--glow);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+.cyber-card:hover .cyber-icon{
+    transform: scale(1.18);
+    box-shadow: 0 0 30px #fff;
+}
+
+/* TEXT STYLES */
+.cyber-title-text {
+    color: white !important;
+}
+
+.cyber-desc-text {
+    color: #c2c8ff !important;
+}
