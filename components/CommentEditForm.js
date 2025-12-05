@@ -13,7 +13,7 @@ export default function CommentEditForm({ commentId }) {
     const router = useRouter();
     const [form, setForm] = useState({
         content: "",
-        commentable_type: "Project",
+        commentable_type: "",
         commentable_id: "",
         workspace: "",
         user_name: "",
@@ -40,11 +40,11 @@ export default function CommentEditForm({ commentId }) {
                 setTasks(tasksData);
 
                 // ensure the correct list is available before setting an ID
-const type = commentData.commentable_type || "Project";
+const type = commentData.commentable?.type || "Project";
 const id = commentData.commentable?.id || "";
 
 // only set the id if it exists in the correct list
-const validOptions = type === "Project" ? projectsData : tasksData;
+const validOptions = type === "Task" ? tasksData : projectsData;
 const validId = validOptions.some(item => item.id == id) ? id : "";
 
 setForm({
