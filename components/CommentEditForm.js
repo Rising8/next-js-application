@@ -40,20 +40,16 @@ export default function CommentEditForm({ commentId }) {
                 setTasks(tasksData);
 
                 // ensure the correct list is available before setting an ID
-const type = commentData.commentable?.type || "Project";
-const id = commentData.commentable?.id || "";
+                const type = commentData.commentable?.type || "Project";
+                const id = commentData.commentable?.id || "";
 
-// only set the id if it exists in the correct list
-const validOptions = type === "Task" ? tasksData : projectsData;
-const validId = validOptions.some(item => item.id == id) ? id : "";
-
-setForm({
-    content: commentData.content || "",
-    commentable_type: type,
-    commentable_id: validId,
-    workspace: commentData.workspace?.name || "",
-    user_name: commentData.user?.name || "Unknown",
-});
+                setForm({
+                    content: commentData.content || "",
+                    commentable_type: type,
+                    commentable_id: id,
+                    workspace: commentData.workspace?.name || "",
+                    user_name: commentData.user?.name || "Unknown",
+                });
             } catch (err) {
                 setError(err.message || "Error loading comment");
             } finally {
@@ -83,6 +79,11 @@ setForm({
 
     const commentableOptions =
         form.commentable_type === "Project" ? projects : tasks;
+
+    const currentCommentableId =
+        commentableOptions.find(item => String(item.id) === String(form.commentable_id))?.id ||
+        commentableOptions[0]?.id ||
+        "";
 
     const handleTypeChange = (value) => {
         setForm({
@@ -138,7 +139,6 @@ setForm({
             <div className="flex flex-col gap-1 mb-4">
                 <label className="text-sm font-medium text-gray-700">Type</label>
                 <select
-                    key={form.commentable_type}
                     value={form.commentable_type}
                     onChange={(e) => handleTypeChange(e.target.value)}
                     className="rounded border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 select input neon-input"
@@ -155,7 +155,7 @@ setForm({
                     Select {form.commentable_type}
                 </label>
                 <select
-                    value={form.commentable_id}
+                    value={currentCommentableId}
                     onChange={(e) =>
                         setForm({ ...form, commentable_id: e.target.value })
                     }
@@ -164,7 +164,7 @@ setForm({
                 >
                     <option value="">-- Select {form.commentable_type} --</option>
                     {commentableOptions.map((item) => (
-                        <option key={item.id} value={item.id}>
+                        <option key={item.id} value={String(item.id)}>
                             {item.name}
                         </option>
                     ))}
