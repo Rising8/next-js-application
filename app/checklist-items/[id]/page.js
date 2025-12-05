@@ -7,8 +7,8 @@ export async function generateStaticParams() {
 
     try {
         const res = await api.get("/checklist-items");
-        const comments = res.data.data || res.data || [];
-        return comments.filter(c => c?.id).map(c => ({ id: c.id.toString() }));
+        const items = res.data.data || res.data || [];
+        return items.filter(c => c?.id).map(c => ({ id: c.id.toString() }));
     } catch (error) {
         console.warn("Unable to pre-generate checklist item pages:", error.message);
         return [];
